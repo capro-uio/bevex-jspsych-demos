@@ -63,7 +63,7 @@ var ColorWordTestRepeats = 4
 	If the instruction keyboard mapping figure is too low change the 'height' value below.
 */
 
-function PutIntoTable(top='top', middle='mid', width=600, height=300, img_path=keyboard_path) {
+function PutIntoTable(top='top', middle='mid', width=600, height=250, img_path=keyboard_path) {
    return '<table border="0" width="'+width+'"><tr height="'+height+'"><td>'+top+'</td></tr><tr height="'+height+'">'+
           '<td><div style="font-size:60px;">'+middle+'</div></td></tr><tr height="'+height+'">'+
           '<td valign="bottom"><img src="'+ keyboard_path +'"></td></tr></table>';
