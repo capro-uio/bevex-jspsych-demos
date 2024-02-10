@@ -5,37 +5,37 @@ var StimulusFontSize = '60px';
 var keyboard_path = "./assets/images/StroopColorsKeyboard.png"
 
 var ColorInstrText = [
-      '<p style="font-size:'+TextFontSize+'">Welcome to the Stroop Color experiment.</p>',
-      '<p style="font-size:'+TextFontSize+'">You will be identifying the color of rectangles shown on the screen. When a rectangle is shown on the screen you are to press the key that corresponds to that color, as shown in the figure. This figure will be present during the entire experiment.</p><img src="' + keyboard_path + '"></img>',
-      '<p style="font-size:'+TextFontSize+'">Before doing the actual experiment you will complete some practice trials. These will give you feedback about your accuracy. <p style="font-size:'+TextFontSize+'">Remember to respond as accurately and quickly as possible.</p>'];
+      '<p style="font-size:'+TextFontSize+'">Velkommen til Stroop-fargeeksperimentet.</p>',
+      '<p style="font-size:'+TextFontSize+'">Du vil identifisere fargen på rektangler som vises på skjermen. Når et rektangel vises på skjermen, skal du trykke på tasten som tilsvarer den fargen, som vist i figuren. Denne figuren vil være til stede under hele eksperimentet.</p><img src="' + keyboard_path + '"></img>',
+      '<p style="font-size:'+TextFontSize+'">Før du gjør det faktiske eksperimentet, vil du gjennomføre noen øvingstester. Disse vil gi deg tilbakemelding om nøyaktigheten din. <p style="font-size:'+TextFontSize+'">Husk å svare så nøyaktig og raskt som mulig.</p>'];
 
-var ColorInstrPoorPerformanceText = ['<p style="font-size:'+TextFontSize+'">There will be another run of practice trials with feedback.</p> <p style="font-size:'+TextFontSize+'">Remember to respond as accurately and quickly as possible.</p>'];
+var ColorInstrPoorPerformanceText = ['<p style="font-size:'+TextFontSize+'">Det vil være en annen runde med øvingstester med tilbakemelding.</p> <p style="font-size:'+TextFontSize+'">Husk å svare så nøyaktig og raskt som mulig.</p>'];
 
-var ColorTestInstrText = ['<p style="font-size:'+TextFontSize+'">You will now respond without any feedback. Try to respond as quickly and accurately as possible. </p>'];
+var ColorTestInstrText = ['<p style="font-size:'+TextFontSize+'">Nå skal du svare uten noen tilbakemelding. Prøv å svare så raskt og nøyaktig som mulig. </p>'];
 
 var WordInstrText = [
-   '<p style="font-size:'+TextFontSize+'">Welcome to the Stroop Word experiment.</p>',
-   '<p style="font-size:'+TextFontSize+'">In this task, words will appear in the center of the screen, like   this:</p><p style="font-size:'+TextFontSize+'">Blå</p><p style="font-size:'+TextFontSize+'">You need to indicate what word is written. </br>Press the key that corresponds to that color, as shown in the figure. This figure will be present during the entire experiment.</p><img src="' + keyboard_path + '"></img>',
-   '<p style="font-size:'+TextFontSize+'">Before doing the actual experiment you will complete some practice trials. These will give you feedback about your accuracy. <p style="font-size:'+TextFontSize+'">Remember to respond as accurately and quickly as possible.</p>'];
+   '<p style="font-size:'+TextFontSize+'">Velkommen til Stroop-ordeksperimentet.</p>',
+   '<p style="font-size:'+TextFontSize+'">I denne oppgaven vil ord vises i midten av skjermen, som dette:</p><p style="font-size:'+TextFontSize+'">Blå</p><p style="font-size:'+TextFontSize+'">Du må indikere hvilket ord som er skrevet. </br>Trykk på tasten som tilsvarer den fargen, som vist i figuren. Denne figuren vil være til stede under hele eksperimentet.</p><img src="' + keyboard_path + '"></img>',
+   '<p style="font-size:'+TextFontSize+'">Før du gjør det faktiske eksperimentet, vil du gjennomføre noen øvingstester. Disse vil gi deg tilbakemelding om nøyaktigheten din. <p style="font-size:'+TextFontSize+'">Husk å svare så nøyaktig og raskt som mulig.</p>'];
    
-var WordInstrPoorPerformanceText = ['<p style="font-size:'+TextFontSize+'">There will be another run of practice trials with feedback.</p> <p style="font-size:'+TextFontSize+'">Remember to respond as accurately and quickly as possible.</p>'];
+var WordInstrPoorPerformanceText = ['<p style="font-size:'+TextFontSize+'">Det vil være en annen runde med øvingstester med tilbakemelding.</p> <p style="font-size:'+TextFontSize+'">Husk å svare så nøyaktig og raskt som mulig.</p>'];
 
-var WordTestInstrText = ['<p style="font-size:'+TextFontSize+'">Now you will do the task.</br>It will be exactly like the practice except you will not get feedback. </p>'];
+var WordTestInstrText = ['<p style="font-size:'+TextFontSize+'">Nå skal du gjennomføre oppgaven.</br>Den vil være akkurat som øvingstesten, bortsett fra at du ikke vil få tilbakemelding. </p>'];
     
 var ColorWordInstrText = [
-      '<p style="font-size:'+TextFontSize+'">Welcome to the Stroop Color/Word experiment.</p>',
-      '<p style="font-size:'+TextFontSize+'">In this task, words will appear in the center of the screen. You need to indicate the COLOR that the word is written in (and ignore what the word says). Press the key that corresponds to that color, as shown in the figure. This figure will be present during the entire experiment.</p><img src="' + keyboard_path + '"></img>',
-      '<p style="font-size:'+TextFontSize+'">Before doing the actual experiment you will complete some practice trials. These will give you feedback about your accuracy. <p style="font-size:'+TextFontSize+'">Remember to respond as accurately and quickly as possible.</p>'];
+      '<p style="font-size:'+TextFontSize+'">Velkommen til Stroop-farge/ordeksperimentet.</p>',
+      '<p style="font-size:'+TextFontSize+'">I denne oppgaven vil ord vises i midten av skjermen. Du må indikere FARGEN som ordet er skrevet i (og ignorere hva ordet sier). Trykk på tasten som tilsvarer den fargen, som vist i figuren. Denne figuren vil være til stede under hele eksperimentet.</p><img src="' + keyboard_path + '"></img>',
+      '<p style="font-size:'+TextFontSize+'">Før du gjør det faktiske eksperimentet, vil du gjennomføre noen øvingstester. Disse vil gi deg tilbakemelding om nøyaktigheten din. <p style="font-size:'+TextFontSize+'">Husk å svare så nøyaktig og raskt som mulig.</p>'];
 
-var ColorWordInstrPoorPerformanceText = ['<p style="font-size:'+TextFontSize+'">There will be another run of practice trials with feedback.</p> <p style="font-size:'+TextFontSize+'">Remember to respond as accurately and quickly as possible.</p>'];
+var ColorWordInstrPoorPerformanceText = ['<p style="font-size:'+TextFontSize+'">Det vil være en annen runde med øvingstester med tilbakemelding.</p> <p style="font-size:'+TextFontSize+'">Husk å svare så nøyaktig og raskt som mulig.</p>'];
 
-var ColorWordTestInstrText = ['<p style="font-size:'+TextFontSize+'">You will now respond without any feedback. Try to respond as quickly and accurately as possible. </p>'];
+var ColorWordTestInstrText = ['<p style="font-size:'+TextFontSize+'">Nå skal du svare uten noen tilbakemelding. Prøv å svare så raskt og nøyaktig som mulig. </p>'];
 
-var ColorThankYouText = 'Thank you. Press any key to end the experiment.'
+var ColorThankYouText = 'Takk for at du fullførte eksperimentet. Trykk på en tast for å avslutte.'
 
-var WordThankYouText = 'Thank you. Press any key to end the experiment.'
+var WordThankYouText = 'Takk for at du fullførte eksperimentet. Trykk på en tast for å avslutte.'
 
-var ColorWordThankYouText = 'Thank you. Press any key to end the experiment.'
+var ColorWordThankYouText = 'Takk for at du fullførte eksperimentet. Trykk på en tast for å avslutte.'
 
 /* If the response choice get modified here they also need to be modified below
 */
