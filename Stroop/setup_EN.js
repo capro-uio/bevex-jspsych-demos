@@ -1,35 +1,56 @@
 var FullScreenMode = false;
-var TextFontSize = "30px";
-var StimulusFontSize = '60px';
 
 var keyboard_path = "./assets/images/StroopColorsKeyboard.png"
 
+function debrief_standard(data, congruency=false){
+  var total_trials = data.count();
+  var NumberCorrect = data.filter({correct: true}).count()
+  var accuracy = Math.round(NumberCorrect / total_trials * 100);
+
+  if (!congruency){
+    return(
+      "<p>You responded correctly on <strong>"+accuracy+"%</strong> of the "+total_trials+" trials.</p> " +
+      "<p>Press any key to continue the experiment. </p>"
+    )
+  }
+
+  var congruent_rt = Math.round(jsPsych.data.get().filter({correct: true, Congruency: 'Con'}).select('rt').mean());
+  var incongruent_rt = Math.round(jsPsych.data.get().filter({correct: true, Congruency: 'Incon'}).select('rt').mean());
+
+  return(
+    "<p>You responded correctly on <strong>"+accuracy+"%</strong> of the "+total_trials+" trials.</p> " +
+    "<p>Your average response time for congruent trials was <strong>" + congruent_rt + "ms</strong>.</p>"+
+    "<p>Your average response time for incongruent trials was <strong>" + incongruent_rt + "ms</strong>.</p>"+
+    "<p>Press any key to continue the experiment.</p>"
+  )
+}
+
 var ColorInstrText = [
-      '<p style="font-size:'+TextFontSize+'">Welcome to the Stroop Color experiment.</p>',
-      '<p style="font-size:'+TextFontSize+'">You will be identifying the color of rectangles shown on the screen. When a rectangle is shown on the screen you are to press the key that corresponds to that color, as shown in the figure. This figure will be present during the entire experiment.</p><img src="' + keyboard_path + '"></img>',
-      '<p style="font-size:'+TextFontSize+'">Before doing the actual experiment you will complete some practice trials. These will give you feedback about your accuracy. <p style="font-size:'+TextFontSize+'">Remember to respond as accurately and quickly as possible.</p>'];
+      '<p class="instruction">Welcome to the Stroop Color experiment.</p>',
+      '<p class="instruction">You will be identifying the color of rectangles shown on the screen. When a rectangle is shown on the screen you are to press the key that corresponds to that color, as shown in the figure. This figure will be present during the entire experiment.</p><img src="' + keyboard_path + '"></img>',
+      '<p class="instruction">Before doing the actual experiment you will complete some practice trials. These will give you feedback about your accuracy. <p class="instruction">Remember to respond as accurately and quickly as possible.</p>'];
 
-var ColorInstrPoorPerformanceText = ['<p style="font-size:'+TextFontSize+'">There will be another run of practice trials with feedback.</p> <p style="font-size:'+TextFontSize+'">Remember to respond as accurately and quickly as possible.</p>'];
+var ColorInstrPoorPerformanceText = ['<p class="instruction">There will be another run of practice trials with feedback.</p> <p class="instruction">Remember to respond as accurately and quickly as possible.</p>'];
 
-var ColorTestInstrText = ['<p style="font-size:'+TextFontSize+'">You will now respond without any feedback. Try to respond as quickly and accurately as possible. </p>'];
+var ColorTestInstrText = ['<p class="instruction">You will now respond without any feedback. Try to respond as quickly and accurately as possible. </p>'];
 
 var WordInstrText = [
-   '<p style="font-size:'+TextFontSize+'">Welcome to the Stroop Word experiment.</p>',
-   '<p style="font-size:'+TextFontSize+'">In this task, words will appear in the center of the screen, like   this:</p><p style="font-size:'+TextFontSize+'">Blå</p><p style="font-size:'+TextFontSize+'">You need to indicate what word is written. </br>Press the key that corresponds to that color, as shown in the figure. This figure will be present during the entire experiment.</p><img src="' + keyboard_path + '"></img>',
-   '<p style="font-size:'+TextFontSize+'">Before doing the actual experiment you will complete some practice trials. These will give you feedback about your accuracy. <p style="font-size:'+TextFontSize+'">Remember to respond as accurately and quickly as possible.</p>'];
+   '<p class="instruction">Welcome to the Stroop Word experiment.</p>',
+   '<p class="instruction">In this task, words will appear in the center of the screen, like   this:</p><p class="instruction">Blå</p><p class="instruction">You need to indicate what word is written. </br>Press the key that corresponds to that color, as shown in the figure. This figure will be present during the entire experiment.</p><img src="' + keyboard_path + '"></img>',
+   '<p class="instruction">Before doing the actual experiment you will complete some practice trials. These will give you feedback about your accuracy. <p class="instruction">Remember to respond as accurately and quickly as possible.</p>'];
    
-var WordInstrPoorPerformanceText = ['<p style="font-size:'+TextFontSize+'">There will be another run of practice trials with feedback.</p> <p style="font-size:'+TextFontSize+'">Remember to respond as accurately and quickly as possible.</p>'];
+var WordInstrPoorPerformanceText = ['<p class="instruction">There will be another run of practice trials with feedback.</p> <p class="instruction">Remember to respond as accurately and quickly as possible.</p>'];
 
-var WordTestInstrText = ['<p style="font-size:'+TextFontSize+'">Now you will do the task.</br>It will be exactly like the practice except you will not get feedback. </p>'];
+var WordTestInstrText = ['<p class="instruction">Now you will do the task.</br>It will be exactly like the practice except you will not get feedback. </p>'];
     
 var ColorWordInstrText = [
-      '<p style="font-size:'+TextFontSize+'">Welcome to the Stroop Color/Word experiment.</p>',
-      '<p style="font-size:'+TextFontSize+'">In this task, words will appear in the center of the screen. You need to indicate the COLOR that the word is written in (and ignore what the word says). Press the key that corresponds to that color, as shown in the figure. This figure will be present during the entire experiment.</p><img src="' + keyboard_path + '"></img>',
-      '<p style="font-size:'+TextFontSize+'">Before doing the actual experiment you will complete some practice trials. These will give you feedback about your accuracy. <p style="font-size:'+TextFontSize+'">Remember to respond as accurately and quickly as possible.</p>'];
+      '<p class="instruction">Welcome to the Stroop Color/Word experiment.</p>',
+      '<p class="instruction">In this task, words will appear in the center of the screen. You need to indicate the COLOR that the word is written in (and ignore what the word says). Press the key that corresponds to that color, as shown in the figure. This figure will be present during the entire experiment.</p><img src="' + keyboard_path + '"></img>',
+      '<p class="instruction">Before doing the actual experiment you will complete some practice trials. These will give you feedback about your accuracy. <p class="instruction">Remember to respond as accurately and quickly as possible.</p>'];
 
-var ColorWordInstrPoorPerformanceText = ['<p style="font-size:'+TextFontSize+'">There will be another run of practice trials with feedback.</p> <p style="font-size:'+TextFontSize+'">Remember to respond as accurately and quickly as possible.</p>'];
+var ColorWordInstrPoorPerformanceText = ['<p class="instruction">There will be another run of practice trials with feedback.</p> <p class="instruction">Remember to respond as accurately and quickly as possible.</p>'];
 
-var ColorWordTestInstrText = ['<p style="font-size:'+TextFontSize+'">You will now respond without any feedback. Try to respond as quickly and accurately as possible. </p>'];
+var ColorWordTestInstrText = ['<p class="instruction">You will now respond without any feedback. Try to respond as quickly and accurately as possible. </p>'];
 
 var ColorThankYouText = 'Thank you. Press any key to end the experiment.'
 
