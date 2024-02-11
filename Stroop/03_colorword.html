@@ -210,10 +210,17 @@
         on_interaction_data_update: function(data) {
           console.log(JSON.stringify(data))
         },
-        on_finish: function() {
-          jsPsych.data.get().localSave('csv','StroopColorWordMydata.csv');
+        on_finish: async function() {
+          const r = await fetch("./save", {
+            method: "POST",
+             headers: {
+                "Content-Type": "application/json",
+                "Accept": "text/json"
+            },
+            body: jsPsych.data.get().json()
+          });
         }
-
+        //on_finish: saveData
     });
   </script>
 </html>
